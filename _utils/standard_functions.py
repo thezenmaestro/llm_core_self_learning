@@ -7,17 +7,51 @@ from IPython.display import Markdown
 
 def load_env():
     load_dotenv(override=True)
-    
-    open_api_key = os.getenv('OPENAI_API_KEY')
-
-    if not open_api_key:
-        print("No API key was found!")
-    elif not open_api_key.startswith("sk-proj-"):
-        print("An API key was found, but it doesn't start sk-proj-; please check you're using the right key. Open AI API must start with sk-proj-")
-    else:
-        print("API key found and looks valid!")
 
     OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL")
+
+    openai_api_key      = os.getenv('OPENAI_API_KEY')
+    anthropic_api_key   = os.getenv('ANTHROPIC_API_KEY')
+    google_api_key      = os.getenv('GOOGLE_API_KEY')
+    deepseek_api_key    = os.getenv('DEEPSEEK_API_KEY')
+    groq_api_key        = os.getenv('GROQ_API_KEY')
+    grok_api_key        = os.getenv('GROK_API_KEY')
+    openrouter_api_key  = os.getenv('OPENROUTER_API_KEY')
+
+    if openai_api_key:
+        print(f"OpenAI API Key exists and begins with {openai_api_key[:8]}")
+    else:
+        print("OpenAI API Key not set")
+
+    if google_api_key:
+        print(f"Google API Key exists and begins with {google_api_key[:2]}")
+    else:
+        print("Google API Key not set")
+        
+    if anthropic_api_key:
+        print(f"Anthropic API Key exists and begins with {anthropic_api_key[:7]}")
+    else:
+        print("Anthropic API Key not set")
+
+    if deepseek_api_key:
+        print(f"DeepSeek API Key exists and begins with {deepseek_api_key[:3]}")
+    else:
+        print("DeepSeek API Key not set")
+
+    if groq_api_key:
+        print(f"Groq API Key exists and begins with {groq_api_key[:4]}")
+    else:
+        print("Groq API Key not set")
+
+    if grok_api_key:
+        print(f"Grok API Key exists and begins with {grok_api_key[:4]}")
+    else:
+        print("Grok API Key not set")
+
+    if openrouter_api_key:
+        print(f"OpenRouter API Key exists and begins with {openrouter_api_key[:3]}")
+    else:
+        print("OpenRouter API Key not set")
 
 
 
